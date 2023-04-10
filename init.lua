@@ -1,6 +1,9 @@
 -- load illumination api
 dofile(minetest.get_modpath("titanium") .. "/illumination.lua")
 
+-- force Techage to load meridium code
+wielded_light = {}
+
 -- blocks
 minetest.register_node("titanium:titanium_in_ground", {
 	description = "Titanium Ore",
