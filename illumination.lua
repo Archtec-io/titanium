@@ -89,6 +89,7 @@ local t = 0
 minetest.register_globalstep(function(dtime)
 	t = t + dtime
 	if t > 0.3 then
+		t = 0
 		for _, player in pairs(minetest.get_connected_players()) do
 			update_illumination(player, dtime)
 		end
@@ -112,7 +113,7 @@ end)
 
 -- Light node for every light level
 for n = 1, 14 do
-	minetest.register_node("illumination:light_"..n, {
+	minetest.register_node(":illumination:light_"..n, {
 		drawtype = "airlike",
 		paramtype = "light",
 		light_source = n,
@@ -133,7 +134,7 @@ end
 -- Cleanup for leftover and player-placed illumination lights
 minetest.register_lbm({
 	label = "Illumination light cleanup",
-	name = "illumination:light_cleanup",
+	name = ":illumination:light_cleanup",
 	nodenames = {"group:illumination_light"},
 	run_at_every_load = true,
 	action = function(pos)
