@@ -18,21 +18,15 @@ local function get_light_node(player)
 	local item = player:get_wielded_item():get_name()
 	local def = minetest.registered_items[item]
 	if def and def.light_source then
-		light = def.light_source - 2
+		light = def.light_source - 3
 	end
 	-- Google glass support
 	local inv = player:get_inventory()
 	if inv:contains_item("main", "titanium:sam_titanium") then
-		light = 12
+		light = 11
 	end
-	-- Light from armor or other worn items
-	local name = player:get_player_name()
-	local armor_light = player_lights[name].armor_light
-	if armor_light and armor_light > light then
-		light = armor_light
-	end
-	if light >= 14 then
-		return "illumination:light_14"
+	if light > 11 then
+		return "illumination:light_11"
 	elseif light < 1 then
 		return nil
 	end
@@ -72,7 +66,9 @@ local function update_illumination(player, dtime)
 	if node then
 		local new_pos = find_light_pos(pos)
 		if new_pos then
-			minetest.set_node(new_pos, {name = node})
+			if (minetest.get_node_light(new_pos) or 0) < 11 then
+				minetest.set_node(new_pos, {name = node})
+			end
 			if old_pos and not vector.equals(old_pos, new_pos) then
 				remove_light(old_pos)
 			end
@@ -112,7 +108,7 @@ minetest.register_on_leaveplayer(function(player)
 end)
 
 -- Light node for every light level
-for n = 1, 14 do
+for n = 1, 11 do
 	minetest.register_node(":illumination:light_"..n, {
 		drawtype = "airlike",
 		paramtype = "light",
@@ -141,3 +137,5 @@ minetest.register_lbm({
 		minetest.set_node(pos, {name = "air"})
 	end,
 })
+
+minetest.register_alias("titanium:light", "illumination:light_11")

@@ -3,3 +3,7 @@ read_globals = {
     "default",
     "vector"
 }
+
+globals = {
+    "wielded_light"
+}
