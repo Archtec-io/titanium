@@ -110,35 +110,35 @@ minetest.register_craft({
 	output = "titanium:pick",
 	recipe = {
 		{"titanium:titanium", "titanium:titanium", "titanium:titanium"},
-		{"", "default:stick", ""},
-		{"", "default:stick", ""},
+		{"", "group:stick", ""},
+		{"", "group:stick", ""},
 	}
 })
 
 minetest.register_craft({
 	output = "titanium:axe",
 	recipe = {
-		{"titanium:titanium", "titanium:titanium", ""},
-		{"titanium:titanium", "default:stick", ""},
-		{"", "default:stick", ""},
+		{"titanium:titanium", "titanium:titanium"},
+		{"titanium:titanium", "group:stick"},
+		{"", "group:stick"},
 	}
 })
 
 minetest.register_craft({
 	output = "titanium:shovel",
 	recipe = {
-		{"", "titanium:titanium", ""},
-		{"", "default:stick", ""},
-		{"", "default:stick", ""},
+		{"titanium:titanium"},
+		{"group:stick"},
+		{"group:stick"},
 	}
 })
 
 minetest.register_craft({
 	output = "titanium:sword",
 	recipe = {
-		{"", "titanium:titanium", ""},
-		{"", "titanium:titanium", ""},
-		{"", "default:stick", ""},
+		{"titanium:titanium"},
+		{"titanium:titanium"},
+		{"group:stick"},
 	}
 })
 
