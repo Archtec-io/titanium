@@ -52,7 +52,7 @@ minetest.register_node("titanium:titanium_plate", {
 })
 
 -- tools
-minetest.register_tool("titanium:sword", {
+minetest.register_tool("titanium:sword_titanium", {
 	description = "Titanium Sword",
 	inventory_image = "titanium_sword.png",
 	tool_capabilities = {
@@ -66,7 +66,7 @@ minetest.register_tool("titanium:sword", {
 	}
 })
 
-minetest.register_tool("titanium:axe", {
+minetest.register_tool("titanium:axe_titanium", {
 	description = "Titanium Axe",
 	inventory_image = "titanium_axe.png",
 	tool_capabilities = {
@@ -78,7 +78,7 @@ minetest.register_tool("titanium:axe", {
 	},
 })
 
-minetest.register_tool("titanium:shovel", {
+minetest.register_tool("titanium:shovel_titanium", {
 	description = "Titanium Shovel",
 	inventory_image = "titanium_shovel.png",
 	tool_capabilities = {
@@ -90,7 +90,7 @@ minetest.register_tool("titanium:shovel", {
 	},
 })
 
-minetest.register_tool("titanium:pick", {
+minetest.register_tool("titanium:pick_titanium", {
 	description = "Titanium Pickaxe",
 	inventory_image = "titanium_pick.png",
 	tool_capabilities = {
@@ -104,6 +104,12 @@ minetest.register_tool("titanium:pick", {
 		damage_groups = {fleshy=4},
 	},
 })
+
+-- Aliases for old tool names
+minetest.register_alias("titanium:sword", "titanium:sword_titanium")
+minetest.register_alias("titanium:axe", "titanium:axe_titanium")
+minetest.register_alias("titanium:shovel", "titanium:shovel_titanium")
+minetest.register_alias("titanium:pick", "titanium:pick_titanium")
 
 -- crafting
 minetest.register_craft({
